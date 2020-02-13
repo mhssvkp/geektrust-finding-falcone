@@ -1,0 +1,8 @@
+<div class="vehicles-container">
+    <div *ngFor="let vehicle of vehicles;index as i" class="vehicle">
+        <input type="radio" [id]="vehicle.name+'i'" [name]="'vehicle'+id" [value]="vehicle.name"
+            [disabled]="distance>vehicle.max_distance || vehicle.count==0" (click)="vehicelSelection($event)"
+            [checked]="vehicle.name === selectedVName">
+        <label for="vehicle">{{vehicle.name + ' ('+vehicle.count+')'}}</label>
+    </div>
+</div>

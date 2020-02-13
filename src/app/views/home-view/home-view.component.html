@@ -1,0 +1,19 @@
+<div class="main-container" id="content">
+    <p class="select-heading">Select planets you want to search in:</p>
+    <div class="home-contaier">
+        <div class="planets-container">
+            <div *ngFor="let id of idArr" [id]="'destination-'+id" class="destination">
+                <app-custom-dropdown (selected)="selected($event,id)" [id]="id" [planets]="planets"
+                    [vehicles]="vehicles">
+                </app-custom-dropdown>
+            </div>
+        </div>
+        <div class="time-container">
+            Time Taken : {{time}}
+        </div>
+    </div>
+
+    <div class="find-btn">
+        <button (click)="submit()" [disabled]="!allSelected()">Find Falcone!</button>
+    </div>
+</div>

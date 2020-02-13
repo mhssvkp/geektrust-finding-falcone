@@ -1,0 +1,9 @@
+.dropdown{
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+}
+
+.selected{
+    color: rgb(160, 156, 149);
+}

@@ -1,0 +1,11 @@
+<div class="dropdown">
+  <label for="planets">Destination {{id}}</label>
+  <select id="planets" (change)="selected($event)" autocomplete="on">
+    <option value="-1" selected>Select one planet</option>
+    <option *ngFor="let planet of planets;index as ind" [ngClass]="{'selected':selectedIndex==ind}" [value]="ind"
+      [disabled]="planet.isSelected">{{planet.name}}</option>
+  </select>
+</div>
+<app-custom-radio-select (selected)="vehicleSelection($event)" [destinationDist]="planetSelected.distance"
+  [vehicles]="vehicles" [id]="id" *ngIf="isSelected">
+</app-custom-radio-select>
