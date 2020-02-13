@@ -9,7 +9,7 @@ export class AppComponent {
   constructor() { }
 
   reset() {
-    window.location.reload();
+    window.location.assign('/');
   }
 
   gtHome() {
