@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { environment } from 'src/environments/environment';
+environment;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,9 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() { }
-
   reset() {
-    window.location.assign('/');
+    if (environment.production) {
+      window.location.assign('https://mhssvkp.github.io/geektrust-finding-falcone/');
+    } else {
+      window.location.assign('/');
+    }
+
   }
 
   gtHome() {
