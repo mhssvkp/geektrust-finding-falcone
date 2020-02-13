@@ -81,12 +81,18 @@ export class HomeViewComponent implements OnInit, OnDestroy {
     }
     const httpHeaders = new HttpHeaders({ "Accept": "application/json", "Content-Type": "application/json" });
     this.httpService.post('/find', body, httpHeaders).subscribe(resp => {
-      if (resp) {
+      if (resp && resp.status) {
         resp.status === 'success' ? this.successRoute(resp.planet_name, this.time) : this.failureRoute()
+      } else if (resp && resp.error) {
+        this.httpService.fetchToken();
+        setTimeout(() => {
+          console.log("retrying submit as submit failed due to token error.");
+          this.submit();
+        }, 3000);
       }
     }, error => {
       console.log(error);
-      this.failureRoute();
+      console.log("Some System Error");
     });
   }
 
